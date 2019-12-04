@@ -10,16 +10,17 @@ From: debian:stretch
 	exit 0
 
 %post
-	export NVIDIA_VER=NVIDIA-Linux-x86_64-435.21.run
+	export VER_NUM=435.21
+	export NVIDIA_VER=NVIDIA-Linux-x86_64-$VER_NUM.run
 
 	apt-get update
 	apt-get -y upgrade
-	apt-get -y install emacs vim nano \
+	apt-get -y install nano \
 	   lshw lsb-release bash-completion \
 	   kmod iputils-ping net-tools \
-	   wget curl
+	   wget
 	
-	wget http://us.download.nvidia.com/XFree86/Linux-x86_64/435.21/NVIDIA-Linux-x86_64-435.21.run -O /$NVIDIA_VER
+	wget http://us.download.nvidia.com/XFree86/Linux-x86_64/$VER_NUM/NVIDIA-Linux-x86_64-$VER_NUM.run -O /$NVIDIA_VER
 
 	sh /$NVIDIA_VER -a -N --ui=none --no-kernel-module
 	rm /$NVIDIA_VER
