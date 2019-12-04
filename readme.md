@@ -1,4 +1,4 @@
-# Singularity Alpine NoVNC
+# Singularity Nvidia
 Primary repository for an Ubuntu-based container with full NVidia hardware passthrough.
 
 ## Usage
